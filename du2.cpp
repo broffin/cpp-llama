@@ -15,15 +15,20 @@ int lcm(int a, int b) {
 }
 
 int main() {
-  int k, n1;
+  int k, nsn;
+  int kola = 1;
   cout << "Počet bežcov: ";
-  cin >> k >> n1;
+  cin >> k >> nsn;
 
   for(int i = 0; i < k-1; i++) {
-    int n2;
+    int n2, tmp;
+    tmp = nsn;
     cin >> n2;
-    n1 = lcm(n1, n2);
+    nsn = lcm(nsn, n2); // 3 –> 3 + 2
+
+    kola = (nsn/tmp) * kola + nsn/n2;
   }
 
-  cout << "LCM pre k bežcov je " << n1 << "." << endl;
+  cout << "LCM pre k bežcov je " << nsn << "." << endl;
+  cout << "Počet prebehnutých kôl je " << kola << "." << endl;
 }
