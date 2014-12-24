@@ -24,7 +24,7 @@ int main() {
     int n2, tmp;
     tmp = nsn;
     cin >> n2;
-    nsn = lcm(nsn, n2); // 3 –> 3 + 2
+    nsn = lcm(nsn, n2);
 
     kola = (nsn/tmp) * kola + nsn/n2;
   }
