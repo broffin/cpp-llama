@@ -17,5 +17,5 @@ int main() {
     //cout << rok << "\t" << suma << endl;
   }
 
-  cout << "Trvalo to len " << rok << " rokov!";
+  cout << "Trvalo to len " << rok << " rokov!" << endl;
 }
