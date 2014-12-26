@@ -77,25 +77,21 @@ long faktorial(int a) {
 }
 
 int kombinacneCislo(int n, int k) {
-	int rozdiel = n - k;
-	int cit = 1;
-	int men = 1;
+	double res = 1.0;
 
-	while (n > rozdiel) {
-		cit *= n;
-		n--;
-	}
+  for (int i = 1; i < k+1; i++) {
+    res *= (n + 1.0 - i) / i;
+  }
+  return res;
+}
 
-	while (k != 0) {
-		men *= k;
-		k--;
-	}
-
-	return cit / men;
+void vypisKC(int n) {
+  for (int i = 0; i <= n; ++i) {
+    cout << kombinacneCislo(n, i) << " ";
+  }
+  cout << endl;
 }
 
 int main() {
-
-	cout << kombinacneCislo(5, 2) << endl;
-
+  vypisKC(10);
 }
