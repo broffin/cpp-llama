@@ -10,8 +10,11 @@ void swap(int &x, int &y) {
 void stripZeros(int a[], int &n) {
   int zero;
   bool hit = false;
+  int numel = 0;
 
   for (int i = 0; i < n; ++i) {
+    if (a[i] != 0) numel++;
+
     if ((a[i] == 0) && (hit == false)) {
       zero = i;
       hit = true;
@@ -23,11 +26,7 @@ void stripZeros(int a[], int &n) {
       hit = false;
     }
   }
-
-  n = 0;
-  while (a[n] != 0) {
-    n++;
-  }
+  n = numel;
 }
 
 int main() {
