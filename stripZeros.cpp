@@ -28,11 +28,9 @@ void stripZeros(int a[], int &n) {
   n = numel;
 }
 
-//{1, 2, 0, 0, 0, 3}
-
 int main() {
-  int a[] = {1,0,2,0,0,3};
-  int n = 6;
+  int a[] = {1,0,2,0,0,3,0,0,6,0};
+  int n = 10;
 
   stripZeros(a, n);
 
