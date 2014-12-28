@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 void swap(int &x, int &y) {
@@ -8,26 +9,26 @@ void swap(int &x, int &y) {
 }
 
 void stripZeros(int a[], int &n) {
-  int zero;
-  bool hit = false;
   int numel = 0;
+  queue<int> zeros;
 
   for (int i = 0; i < n; ++i) {
     if (a[i] != 0) numel++;
 
-    if ((a[i] == 0) && (hit == false)) {
-      zero = i;
-      hit = true;
+    if (a[i] == 0) {
+      zeros.push(i);
     }
 
-    if ((a[i] != 0) && (hit == true)) { 
-      swap(a[zero], a[i]);
-      i = zero;
-      hit = false;
+    if (a[i] != 0 && !zeros.empty()) {
+      swap(a[zeros.front()], a[i]);
+      zeros.pop();
+      zeros.push(i);
     }
   }
   n = numel;
 }
+
+//{1, 2, 0, 0, 0, 3}
 
 int main() {
   int a[] = {1,0,2,0,0,3};
